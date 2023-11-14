@@ -1,4 +1,4 @@
-package hello.itemservice.domain.item;
+package hello.login.domain.item;
 
 import lombok.Data;
 
@@ -6,11 +6,8 @@ import lombok.Data;
 public class Item {
 
     private Long id;
-
     private String itemName;
-
     private Integer price;
-
     private Integer quantity;
 
     public Item() {
