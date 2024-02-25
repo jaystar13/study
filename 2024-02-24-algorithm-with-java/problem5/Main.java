@@ -1,31 +1,37 @@
-package problem4;
+package problem5;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
-        int n = kb.nextInt();
-        String[] strArr = new String[n];
-        for (int i = 0; i < n; i++) {
-            strArr[i] = kb.next();
-        }
+        String str = kb.next();
 
-        for (String reverseString : solution(strArr)) {
-            System.out.println(reverseString);
-        }
+        System.out.println(solution(str));
     }
 
-    public static List<String> solution(String[] strArr) {
-        List<String> reverseStrings = new ArrayList<>();
-        for (String str : strArr) {
-            StringBuilder sb = new StringBuilder(str);
-            reverseStrings.add(sb.reverse().toString());
+    public static String solution(String str) {
+        char[] charArray = str.toCharArray();
+
+        int lt = 0;
+        int rt = str.length() - 1;
+
+        while (lt < rt) {
+            if (!Character.isAlphabetic(charArray[lt])) {
+                lt++;
+            } else if (!Character.isAlphabetic(charArray[rt])) {
+                rt--;
+            } else {
+                char tmp = charArray[lt];
+                charArray[lt] = charArray[rt];
+                charArray[rt] = tmp;
+
+                lt++;
+                rt--;
+            }
         }
 
-        return reverseStrings;
+        return String.valueOf(charArray);
     }
 }
