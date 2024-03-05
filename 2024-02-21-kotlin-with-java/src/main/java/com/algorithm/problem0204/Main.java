@@ -13,11 +13,11 @@ public class Main {
     }
 
     public String solution(int count) {
-        int firstNumber = 0;
+        int firstNumber = 1;
         int secondNumber = 1;
         StringBuilder answer = new StringBuilder();
-        answer.append("1 ");
-        for (int i = 1; i < count; i++) {
+        answer.append("1 1 ");
+        for (int i = 2; i < count; i++) {
             int currentNumber = firstNumber + secondNumber;
             answer.append(currentNumber);
             firstNumber = secondNumber;
