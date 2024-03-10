@@ -13,23 +13,16 @@ public class Main {
     
     public int solution(int n) {
         int answer = 0;
+        int[] numbers = new int[n + 1];
         for (int i = 2; i <= n; i++) {
-            if (i == 2) {
+            if (numbers[i] == 0) {
                 answer++;
-            } else if ( i % 2 > 0) {
-                boolean flag = true;
-                for (int j = 3; j < i; j = j + 2) {
-                    if (i % j == 0) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (flag) {
-                    answer++;
-                }
+            }
+            for (int j = i; j <= n; j = j + i) {
+                numbers[j] = 1;
             }
         }
-        
+
         return answer;
     }
 }
